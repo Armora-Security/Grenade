@@ -24,6 +24,7 @@
 
         <nav class="tabs">
             <button class="tab-button active" data-tab="vms">Virtual Machines</button>
+            <button class="tab-button" data-tab="create-vm">Create VM</button>
             <button class="tab-button" data-tab="storage">Storage</button>
             <button class="tab-button" data-tab="network">Network</button>
             <button class="tab-button" data-tab="settings">Settings</button>
@@ -33,7 +34,6 @@
             <h2><i class="fas fa-server"></i> Virtual Machines</h2>
             <div class="vm-actions">
                 <button id="refresh-vms-btn" class="btn primary"><i class="fas fa-sync-alt"></i> Refresh VMs</button>
-                <button id="create-vm-btn" class="btn secondary"><i class="fas fa-plus-circle"></i> Create New VM</button>
             </div>
             <div class="vm-list-container">
                 <div id="vm-list" class="grid-view">
@@ -42,10 +42,56 @@
             </div>
         </div>
 
+        <div class="tab-content" id="create-vm">
+            <h2><i class="fas fa-plus-circle"></i> Create New Virtual Machine</h2>
+            <form id="create-vm-form">
+                <div class="form-group">
+                    <label for="vm-name">VM Name:</label>
+                    <input type="text" id="vm-name" required placeholder="e.g., MyNewBSDVM">
+                </div>
+                <div class="form-group">
+                    <label for="vm-memory">Memory (MB):</label>
+                    <input type="number" id="vm-memory" value="1024" min="128" required>
+                </div>
+                <div class="form-group">
+                    <label for="vm-vcpu">vCPUs:</label>
+                    <input type="number" id="vm-vcpu" value="1" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="vm-disk-path">Disk Path:</label>
+                    <input type="text" id="vm-disk-path" value="/var/lib/libvirt/images/new_vm.qcow2" required>
+                    <small>Example: /var/lib/libvirt/images/myvm.qcow2</small>
+                </div>
+                <div class="form-group">
+                    <label for="vm-disk-size">Disk Size (GB):</label>
+                    <input type="number" id="vm-disk-size" value="20" min="1" required>
+                    <small>Note: Disk file must be created manually (e.g., `qemu-img create -f qcow2 disk_path sizeG`)</small>
+                </div>
+                <div class="form-group">
+                    <label for="vm-iso-path">OS ISO Path (Optional):</label>
+                    <input type="text" id="vm-iso-path" placeholder="e.g., /path/to/freebsd.iso">
+                    <small>If provided, VM will boot from this ISO.</small>
+                </div>
+                <div class="form-group">
+                    <label for="vm-network-bridge">Network Bridge:</label>
+                    <input type="text" id="vm-network-bridge" value="virbr0" required>
+                    <small>Commonly 'virbr0' or 'br0'.</small>
+                </div>
+                <button type="submit" class="btn primary"><i class="fas fa-magic"></i> Create VM</button>
+            </form>
+            <div id="create-vm-message" class="info-message" style="display: none;"></div>
+        </div>
+
+
         <div class="tab-content" id="storage">
             <h2><i class="fas fa-database"></i> Storage Management</h2>
-            <p>Storage management features coming soon!</p>
-        </div>
+            <div class="storage-actions">
+                <button id="refresh-pools-btn" class="btn primary"><i class="fas fa-sync-alt"></i> Refresh Storage Pools</button>
+            </div>
+            <div id="storage-pools-list" class="grid-view">
+                <p id="no-pool-message" class="info-message" style="display: none;">No storage pools found.</p>
+            </div>
+            </div>
 
         <div class="tab-content" id="network">
             <h2><i class="fas fa-network-wired"></i> Network Configuration</h2>

@@ -1,4 +1,4 @@
-// src/web/static/js/script.js
+// app/web/static/js/script.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const libvirtStatusSpan = document.getElementById('libvirt-status');

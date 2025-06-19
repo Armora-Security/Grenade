@@ -1,0 +1,6 @@
+# Armora-Grenade/requirements.txt
+Flask
+libvirt-python
+# Tambahkan dependensi lain di sini jika diperlukan, contoh:
+gunicorn  # Jika ingin menggunakan gunicorn untuk produksi
+psutil    # Jika nanti ingin monitoring performa VM

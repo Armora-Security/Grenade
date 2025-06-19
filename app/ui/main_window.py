@@ -1,4 +1,4 @@
-# src/ui/main_window.py
+# app/ui/main_window.py
 
 from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QPushButton, QLabel, QMessageBox, QTabWidget, QListWidget, QListWidgetItem
 from PyQt5.QtCore import Qt

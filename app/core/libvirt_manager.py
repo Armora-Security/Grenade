@@ -1,4 +1,4 @@
-# src/core/libvirt_manager.py
+# app/core/libvirt_manager.py
 
 import libvirt
 import sys

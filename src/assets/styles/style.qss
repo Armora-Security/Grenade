@@ -1,0 +1,91 @@
+/* src/assets/styles/style.qss */
+
+/* General Window Styling */
+QMainWindow, QWidget {
+    background-color: #f0f2f5; /* Light grey background */
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Push Button Styling */
+QPushButton {
+    background-color: #007bff; /* Primary blue */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    min-height: 30px; /* Minimum height for better clickability */
+}
+
+QPushButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+QPushButton:pressed {
+    background-color: #004085; /* Even darker when pressed */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc;
+    color: #666666;
+}
+
+/* QLabel for Titles/Headers */
+QLabel {
+    color: #333;
+}
+
+/* QListWidget Styling (for VM list) */
+QListWidget {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 5px;
+    selection-background-color: #e0f2f7; /* Light blue selection */
+    selection-color: #333;
+}
+
+QListWidget::item {
+    padding: 8px;
+    margin-bottom: 2px;
+}
+
+QListWidget::item:selected {
+    border: 1px solid #007bff; /* Border on selected item */
+}
+
+/* QTabWidget Styling */
+QTabWidget::pane { /* The tab widget frame */
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+QTabBar::tab {
+    background: #e0e0e0; /* Light grey tab */
+    border: 1px solid #ccc;
+    border-bottom-color: #ccc; /* Same as pane border */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 8px 15px;
+    margin-right: 2px;
+    color: #555;
+}
+
+QTabBar::tab:selected {
+    background: #007bff; /* Selected tab blue */
+    color: white;
+    border-color: #007bff;
+    border-bottom-color: #007bff; /* Important: make sure the bottom border matches */
+}
+
+QTabBar::tab:hover {
+    background-color: #d0d0d0;
+}
+
+QTabBar::tab:selected:hover {
+    background-color: #0056b3; /* Darker blue on hover for selected tab */
+}

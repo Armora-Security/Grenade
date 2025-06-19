@@ -1,9 +1,3 @@
-Got it\! Thanks for sharing your GitHub repo: [https://github.com/Armora-Security/Grenade/](https://github.com/Armora-Security/Grenade/).
-
-Here's the **`README.md`** file, perfectly tailored for your Armora Grenade project. I've updated the clone URL to match your repository. Just copy and paste this directly into your `README.md` file on GitHub\!
-
------
-
 # Armora Grenade: The Ultimate BSD Virtualization Management Solution
 
 ## Unleash the Power of Virtualization with Unparalleled Elegance
@@ -136,10 +130,3 @@ We welcome contributions from the community\! If you'd like to contribute, pleas
 
 Armora Grenade is released under the license specified in the `LICENSE.txt` file.
 
------
-
-**Remember to do these things on your GitHub repo:**
-
-  * **Add screenshots or GIFs of your GUI\!** This is crucial to showcase your "awesome GUI." You can place them after "Key Features" or "Run Armora Grenade" using Markdown: `![Screenshot GUI Description](path/to/your/image.png)`.
-  * **Create a `CONTRIBUTING.md` file** in the root of your repository if you plan to accept contributions.
-  * **Ensure `LICENSE.txt` exists** in the root of your repository with your chosen license details.

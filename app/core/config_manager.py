@@ -1,4 +1,4 @@
-# src/core/config_manager.py
+# app/core/config_manager.py
 
 import json
 import os

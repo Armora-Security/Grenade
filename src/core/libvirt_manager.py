@@ -13,6 +13,8 @@ class LibvirtManager:
         Attempts to establish a connection to the libvirt daemon.
         Returns True on success, False otherwise.
         """
+        if self.conn: # Already connected
+            return True
         try:
             self.conn = libvirt.open(self.uri)
             if self.conn is None:
@@ -27,7 +29,15 @@ class LibvirtManager:
 
     def is_connected(self):
         """Checks if the libvirt connection is active."""
-        return self.conn is not None
+        if self.conn:
+            try:
+                # Ping the connection to ensure it's still alive
+                self.conn.getLibVersion() 
+                return True
+            except libvirt.libvirtError:
+                self.conn = None # Connection lost
+                return False
+        return False
 
     def disconnect(self):
         """Closes the libvirt connection."""
@@ -42,7 +52,7 @@ class LibvirtManager:
 
     def list_active_vms(self):
         """Lists the names of all active (running) virtual machines."""
-        if not self.conn:
+        if not self.is_connected(): # Use is_connected to re-check
             return []
         try:
             domains = self.conn.listAllDomains(libvirt.VIR_CONNECT_LIST_DOMAINS_ACTIVE)
@@ -53,7 +63,7 @@ class LibvirtManager:
 
     def list_inactive_vms(self):
         """Lists the names of all inactive (stopped/defined but not running) virtual machines."""
-        if not self.conn:
+        if not self.is_connected(): # Use is_connected to re-check
             return []
         try:
             domains = self.conn.listAllDomains(libvirt.VIR_CONNECT_LIST_DOMAINS_INACTIVE)
@@ -64,7 +74,7 @@ class LibvirtManager:
 
     def get_domain_by_name(self, vm_name):
         """Returns a libvirt Domain object by its name."""
-        if not self.conn:
+        if not self.is_connected():
             return None
         try:
             return self.conn.lookupByName(vm_name)
@@ -93,17 +103,14 @@ class LibvirtManager:
         domain = self.get_domain_by_name(vm_name)
         if domain:
             try:
-                # Use shutdown for a graceful shutdown, or destroy for immediate power-off
+                # Use shutdown for a graceful shutdown. destroy() is immediate power-off.
                 domain.shutdown() 
                 print(f"VM '{vm_name}' shutting down.")
-                # You might want a loop here to wait for the VM to actually shut off
+                # For web-based, we usually don't wait here. Frontend will refresh status.
                 return True
             except libvirt.libvirtError as e:
                 print(f"Error stopping VM '{vm_name}': {e}", file=sys.stderr)
                 return False
         return False
 
-   
-    # def create_vm(self, xml_config): ...
-    # def delete_vm(self, vm_name): ...
-    # def take_snapshot(self, vm_name, snapshot_name): ...
+    

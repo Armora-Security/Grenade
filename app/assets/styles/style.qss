@@ -1,4 +1,4 @@
-/* src/assets/styles/style.qss */
+/* app/assets/styles/style.qss */
 
 /* General Window Styling */
 QMainWindow, QWidget {

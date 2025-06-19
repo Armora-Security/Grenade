@@ -2,7 +2,7 @@
 
 from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QPushButton, QLabel, QMessageBox, QTabWidget, QListWidget, QListWidgetItem
 from PyQt5.QtCore import Qt
-from core.libvirt_manager import LibvirtManager # Import LibvirtManager
+from app.core.libvirt_manager import LibvirtManager # Import LibvirtManager
 import os
 import platform
 

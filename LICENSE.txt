@@ -1,0 +1,19 @@
+Proprietary Software License
+
+Copyright (c) 2025 Armora Security All rights reserved.
+
+This software and its source code are provided solely for transparency and security review purposes.
+
+You are NOT permitted to:
+
+- Use this software for any purpose, whether personal, educational, commercial, or non-commercial.
+- Modify, distribute, sublicense, or replicate any part of this software.
+- Deploy, execute, or integrate this software into any product, system, or environment.
+
+This repository exists solely to allow public inspection of the source code, such as for security auditing or due diligence. It does NOT grant any usage rights.
+
+Any usage, reproduction, or redistribution without express written permission from the copyright holder is strictly prohibited and may be subject to legal action.
+
+If you are interested in using this software, please contact:
+mail@armora.net
+
